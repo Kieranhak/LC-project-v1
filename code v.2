@@ -19,7 +19,6 @@ try:
         
         
         else:  
-            print("I'm reading FALSE on GPIO 4") 
             GPIO.output(4, 1)
             sleep(2)
             print(counter)
@@ -33,7 +32,6 @@ try:
         
         
         else:  
-            print("I'm reading FALSE on GPIO 4") 
             GPIO.output(5, 1)
             sleep(2)
             print(counter)           
@@ -43,3 +41,5 @@ try:
 finally:                     
     print("Cleaning up...")
     GPIO.cleanup()  
+    
+    
