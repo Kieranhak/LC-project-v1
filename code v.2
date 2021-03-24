@@ -1,0 +1,45 @@
+import RPi.GPIO as GPIO  
+from time import sleep   
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4, GPIO.IN)    
+GPIO.setup(26, GPIO.IN)
+GPIO.setup(5, GPIO.IN)    
+GPIO.setup(19, GPIO.IN)
+
+counter = 0
+
+try:                      
+    while True:                  
+        if GPIO.input(4):
+            print("I'm reading TRUE on GPIO 4")
+            GPIO.output(26, 0)
+            sleep(2)
+            counter += 1
+           
+        
+        
+        else:  
+            print("I'm reading FALSE on GPIO 4") 
+            GPIO.output(4, 1)
+            sleep(2)
+            print(counter)
+            
+ if GPIO.input(5):
+            print("I'm reading TRUE on GPIO 4")
+            GPIO.output(19, 0)
+            sleep(2)
+            counter -= 1
+           
+        
+        
+        else:  
+            print("I'm reading FALSE on GPIO 4") 
+            GPIO.output(5, 1)
+            sleep(2)
+            print(counter)           
+            
+
+
+finally:                     
+    print("Cleaning up...")
+    GPIO.cleanup()  
